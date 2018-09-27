@@ -1,12 +1,13 @@
 package com.dericon.financial.models;
 
-
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "products")
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class Product {
 
     private String _id;
