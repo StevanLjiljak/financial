@@ -112,28 +112,8 @@ public class ProductController {
     }
 
     @GetMapping("/productsspecific")
-    public List<ProductNew> getAllProductsSpecific() {
-
-        List<Product> products = productRepository.findByOrderByDerived();
-
-        List<ProductNew> productsNew = new ArrayList<>();
-
-        ProductNew productNew = new ProductNew();
-
-        for(Product product : products){
-
-
-            productNew.set_id(product.get_id());
-            productNew.setIssuerName(product.getDerived().getIssuer().getName());
-            productNew.setUnderlyingName(product.getDerived().getUnderlying().getName());
-            productNew.setIsin(product.getIds().getIsin());
-            productNew.setSideYieldPa(product.getFigures().getSideYieldPa());
-
-            productsNew.add(productNew);
-
-        }
-
-        return productsNew;
+    public List<Product> getAllProductsSpecific() {
+        return  productRepository.findByOrderByDerived();
     }
 
 
